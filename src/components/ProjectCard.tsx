@@ -1,3 +1,5 @@
+import { motion } from 'motion/react'
+import { useReducedMotionPreference } from '../hooks/useReducedMotionPreference'
 import architectureArtwork from '../assets/project-architecture.svg'
 import cinemaArtwork from '../assets/project-cinema.svg'
 import modulesArtwork from '../assets/project-modules.svg'
@@ -16,6 +18,8 @@ interface ProjectCardProps {
 }
 
 export function ProjectCard({ project, number }: ProjectCardProps) {
+  const reducedMotion = useReducedMotionPreference()
+  const lift = reducedMotion === false ? -3 : 0
   const headingId = `project-${project.id}`
   const links = [
     { label: 'Repositorio', url: project.links.repository },
@@ -23,7 +27,12 @@ export function ProjectCard({ project, number }: ProjectCardProps) {
   ]
 
   return (
-    <article className={`project-card project-card--${project.artwork}`} aria-labelledby={headingId} tabIndex={0}>
+    <motion.article
+      className={`project-card project-card--${project.artwork}`} aria-labelledby={headingId} tabIndex={0}
+      initial={false} animate="rest" whileHover="engaged" whileFocus="engaged"
+      variants={{ rest: { y: 0 }, engaged: { y: lift } }}
+      transition={{ duration: reducedMotion ? 0 : 0.22 }}
+    >
       <div className="project-content">
         <div className="project-meta">
           <span className="project-number" aria-label={`Proyecto ${number}`}>{number}</span>
@@ -47,9 +56,13 @@ export function ProjectCard({ project, number }: ProjectCardProps) {
       </div>
       <figure className="project-artwork" aria-hidden="true">
         <span className="project-art-label">{project.artworkLabel}</span>
-        <img src={artworks[project.artwork]} alt="" width="640" height="440" loading="lazy" decoding="async" />
+        <motion.img
+          src={artworks[project.artwork]} alt="" width="640" height="440" loading="lazy" decoding="async"
+          variants={{ rest: { y: 0 }, engaged: { y: reducedMotion === false ? -2 : 0 } }}
+          transition={{ duration: reducedMotion ? 0 : 0.3 }}
+        />
         <figcaption>ILUSTRACIÓN CONCEPTUAL <span>/{number}</span></figcaption>
       </figure>
-    </article>
+    </motion.article>
   )
 }
