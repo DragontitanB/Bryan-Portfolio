@@ -87,3 +87,18 @@ export interface TechStackContent {
   description: LocalizedText
   categories: readonly TechCategory[]
 }
+
+export interface ProfessionalLink {
+  name: 'GitHub' | 'LinkedIn'
+  href: `https://${string}`
+  display: string
+}
+
+export interface ContactDetails {
+  email: string
+  mailto: `mailto:${string}`
+  location: LocalizedText
+  specialty: LocalizedText
+  cv: Record<Locale, `/${string}.pdf`>
+  socialLinks: readonly ProfessionalLink[]
+}

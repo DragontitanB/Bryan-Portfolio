@@ -66,11 +66,20 @@ export interface UiTranslations {
     state: string
     headingLead: string
     headingAccent: string
+    kicker: string
     description: string
-    note: string
+    sendEmail: string
+    downloadCv: string
+    directoryLabel: string
+    locationLabel: string
+    specialtyLabel: string
+    emailLabel: string
+    socialLabel: string
+    openExternalLabel: (network: string) => string
   }
   footer: {
     role: string
+    socialLinksLabel: string
     backToTop: string
   }
 }
@@ -139,14 +148,23 @@ export const translations: Record<Locale, UiTranslations> = {
     },
     contact: {
       eyebrow: '05 / CONTACT',
-      state: 'COMING SOON',
-      headingLead: 'Ideas begin',
-      headingAccent: 'with a conversation.',
-      description: 'This will be the place to connect and talk about software, ideas, and new challenges.',
-      note: 'Professional contact channels are being prepared.',
+      state: 'DIRECT CHANNELS',
+      headingLead: 'Let’s build what happens',
+      headingAccent: 'behind the interface.',
+      kicker: 'START A CONVERSATION',
+      description: 'Connect with me to discuss Backend .NET, software development, and practical systems built with clear structure.',
+      sendEmail: 'Send an email',
+      downloadCv: 'Download CV',
+      directoryLabel: 'PROFESSIONAL DIRECTORY',
+      locationLabel: 'Location',
+      specialtyLabel: 'Specialty',
+      emailLabel: 'Email',
+      socialLabel: 'PROFILES',
+      openExternalLabel: (network) => `Open ${network} in a new tab`,
     },
     footer: {
       role: 'Software Developer',
+      socialLinksLabel: 'Professional profiles',
       backToTop: 'Back to top',
     },
   },
@@ -213,14 +231,23 @@ export const translations: Record<Locale, UiTranslations> = {
     },
     contact: {
       eyebrow: '05 / CONTACTO',
-      state: 'PRÓXIMAMENTE',
-      headingLead: 'Las ideas empiezan',
-      headingAccent: 'con una conversación.',
-      description: 'Este será el espacio para conectar y conversar sobre software, ideas y nuevos desafíos.',
-      note: 'Canales de contacto profesional en preparación.',
+      state: 'CANALES DIRECTOS',
+      headingLead: 'Construyamos lo que sucede',
+      headingAccent: 'detrás de la interfaz.',
+      kicker: 'INICIEMOS UNA CONVERSACIÓN',
+      description: 'Conversemos sobre Backend .NET, desarrollo de software y sistemas prácticos construidos con una estructura clara.',
+      sendEmail: 'Enviar correo',
+      downloadCv: 'Descargar CV',
+      directoryLabel: 'DIRECTORIO PROFESIONAL',
+      locationLabel: 'Ubicación',
+      specialtyLabel: 'Especialidad',
+      emailLabel: 'Correo',
+      socialLabel: 'PERFILES',
+      openExternalLabel: (network) => `Abrir ${network} en una pestaña nueva`,
     },
     footer: {
       role: 'Desarrollador de Software',
+      socialLinksLabel: 'Perfiles profesionales',
       backToTop: 'Volver al inicio',
     },
   },
