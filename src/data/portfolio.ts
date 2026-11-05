@@ -20,18 +20,18 @@ export const profile: Profile = {
 
 export const navigation: readonly NavigationItem[] = [
   { id: 'home', label: { es: 'Inicio', en: 'Home' }, index: '00' },
-  { id: 'about', label: { es: 'About', en: 'About' }, index: '01' },
-  { id: 'experience', label: { es: 'Experience', en: 'Experience' }, index: '02' },
-  { id: 'stack', label: { es: 'Stack', en: 'Stack' }, index: '03' },
-  { id: 'projects', label: { es: 'Projects', en: 'Projects' }, index: '04' },
-  { id: 'contact', label: { es: 'Contact', en: 'Contact' }, index: '05' },
+  { id: 'about', label: { es: 'Sobre mí', en: 'About' }, index: '01' },
+  { id: 'experience', label: { es: 'Experiencia', en: 'Experience' }, index: '02' },
+  { id: 'stack', label: { es: 'Tecnologías', en: 'Stack' }, index: '03' },
+  { id: 'projects', label: { es: 'Proyectos', en: 'Projects' }, index: '04' },
+  { id: 'contact', label: { es: 'Contacto', en: 'Contact' }, index: '05' },
 ]
 
 export const about: AboutContent = {
-  eyebrow: { es: '01 / ABOUT ME', en: '01 / ABOUT ME' },
+  eyebrow: { es: '01 / SOBRE MÍ', en: '01 / ABOUT ME' },
   heading: {
-    es: 'Construyo la lógica que sostiene la experiencia.',
-    en: 'I build the logic that supports the experience.',
+    es: { lead: 'Construyo la ', accent: 'lógica', tail: ' que sostiene la experiencia.' },
+    en: { lead: 'I build the ', accent: 'logic', tail: ' behind the experience.' },
   },
   description: {
     es: 'Desarrollador enfocado en Backend .NET, arquitectura MVC, APIs REST, integración de bases de datos y soluciones prácticas. Combino conocimientos técnicos con resolución de problemas y experiencia trabajando con usuarios y sistemas de autenticación.',
@@ -46,8 +46,11 @@ export const about: AboutContent = {
 }
 
 export const timelineContent: TimelineContent = {
-  eyebrow: { es: '02 / EXPERIENCE & EDUCATION', en: '02 / EXPERIENCE & EDUCATION' },
-  heading: { es: 'Experiencia que conecta sistemas y personas.', en: 'Experience connecting systems and people.' },
+  eyebrow: { es: '02 / EXPERIENCIA Y EDUCACIÓN', en: '02 / EXPERIENCE & EDUCATION' },
+  heading: {
+    es: { lead: 'Experiencia que conecta sistemas y ', accent: 'personas.', tail: '' },
+    en: { lead: 'Experience connecting systems and ', accent: 'people.', tail: '' },
+  },
   description: {
     es: 'Una trayectoria que combina soporte técnico, procesos de identidad digital y formación continua en desarrollo de software.',
     en: 'A path combining technical support, digital identity processes, and continuous education in software development.',
@@ -103,8 +106,11 @@ export const timeline: readonly TimelineEntry[] = [
 ]
 
 export const techStack: TechStackContent = {
-  eyebrow: { es: '03 / TECH STACK', en: '03 / TECH STACK' },
-  heading: { es: 'Herramientas para convertir lógica en software.', en: 'Tools for turning logic into software.' },
+  eyebrow: { es: '03 / TECNOLOGÍAS', en: '03 / TECH STACK' },
+  heading: {
+    es: { lead: 'Herramientas para convertir lógica en ', accent: 'software.', tail: '' },
+    en: { lead: 'Tools for turning logic into ', accent: 'software.', tail: '' },
+  },
   description: {
     es: 'Tecnologías organizadas por el papel que cumplen dentro del proceso de desarrollo.',
     en: 'Technologies organized by the role they play in the development process.',
@@ -117,17 +123,17 @@ export const techStack: TechStackContent = {
     },
     {
       id: 'databases',
-      label: { es: 'Databases', en: 'Databases' },
+      label: { es: 'Bases de datos', en: 'Databases' },
       technologies: ['SQL Server', 'MySQL', 'MongoDB'],
     },
     {
       id: 'frontend-mobile',
-      label: { es: 'Frontend & Mobile', en: 'Frontend & Mobile' },
+      label: { es: 'Frontend y Mobile', en: 'Frontend & Mobile' },
       technologies: ['JavaScript', 'TypeScript', 'React', 'HTML', 'CSS', 'Flutter'],
     },
     {
       id: 'tools',
-      label: { es: 'Tools & Workflow', en: 'Tools & Workflow' },
+      label: { es: 'Herramientas y flujo', en: 'Tools & Workflow' },
       technologies: ['Git', 'GitHub', 'Azure DevOps', 'Postman', 'Scrum'],
     },
   ],
@@ -145,7 +151,7 @@ export const projects: readonly Project[] = [
     },
     stack: ['C#', 'ASP.NET MVC', 'Entity Framework', 'SQL Server'],
     artwork: 'architecture',
-    artworkLabel: 'MVC / DATA FLOW',
+    artworkLabel: { es: 'MVC / FLUJO DE DATOS', en: 'MVC / DATA FLOW' },
     links: { repository: null, demo: null },
   },
   {
@@ -159,7 +165,7 @@ export const projects: readonly Project[] = [
     },
     stack: ['C#', 'ASP.NET MVC'],
     artwork: 'cinema',
-    artworkLabel: 'CINEMA / SEAT GEOMETRY',
+    artworkLabel: { es: 'CINE / GEOMETRÍA DE ASIENTOS', en: 'CINEMA / SEAT GEOMETRY' },
     links: { repository: null, demo: null },
   },
   {
@@ -173,7 +179,7 @@ export const projects: readonly Project[] = [
     },
     stack: ['Flutter', 'APIs'],
     artwork: 'modules',
-    artworkLabel: 'MOBILE / CONNECTED MODULES',
+    artworkLabel: { es: 'MOBILE / MÓDULOS CONECTADOS', en: 'MOBILE / CONNECTED MODULES' },
     links: { repository: null, demo: null },
   },
 ]

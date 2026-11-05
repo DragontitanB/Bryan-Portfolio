@@ -1,11 +1,14 @@
 import { useCallback, useEffect, useRef, useState } from 'react'
-import { navigation, profile } from '../data/portfolio'
+import { navigation } from '../data/portfolio'
 import { useActiveSection } from '../hooks/useActiveSection'
+import { useLanguage } from '../hooks/useLanguage'
 import { useMediaQuery } from '../hooks/useMediaQuery'
 import type { SectionId } from '../types/portfolio'
+import { LanguageSwitcher } from './LanguageSwitcher'
 
 export function SiteHeader() {
   const activeSection = useActiveSection()
+  const { localize, t } = useLanguage()
   const isMobileNavigation = useMediaQuery('(max-width: 900px)')
   const [menuOpen, setMenuOpen] = useState(false)
   const menuButtonRef = useRef<HTMLButtonElement>(null)
@@ -58,32 +61,35 @@ export function SiteHeader() {
   return (
     <header className="site-header">
       <div className="container header-inner">
-        <a className="brand" href="#home" aria-label={`${profile.firstName} ${profile.lastName} — Inicio`}>
+        <a className="brand" href="#home" aria-label={t.header.homeLabel}>
           <span className="brand-mark" aria-hidden="true">bq<span>.</span></span>
-          <span className="brand-caption" aria-hidden="true">SOFTWARE<br />DEVELOPER</span>
+          <span className="brand-caption" aria-hidden="true">{t.header.brandCaptionLead}<br />{t.header.brandCaptionTail}</span>
         </a>
-        <nav className="desktop-navigation" aria-label="Navegación principal">
-          <ul className="navigation">
-            {navigation.map(({ id, label, index }) => (
-              <li key={id}>
-                <a href={`#${id}`} aria-current={activeSection === id ? 'location' : undefined}>
-                  <span className="nav-index" aria-hidden="true">{index}</span>
-                  {label.es}
-                </a>
-              </li>
-            ))}
-          </ul>
-        </nav>
+        <div className="header-tools">
+          <nav className="desktop-navigation" aria-label={t.header.navigationLabel}>
+            <ul className="navigation">
+              {navigation.map(({ id, label, index }) => (
+                <li key={id}>
+                  <a href={`#${id}`} aria-current={activeSection === id ? 'location' : undefined}>
+                    <span className="nav-index" aria-hidden="true">{index}</span>
+                    {localize(label)}
+                  </a>
+                </li>
+              ))}
+            </ul>
+          </nav>
+          <LanguageSwitcher placement="desktop" />
+        </div>
         <button
           ref={menuButtonRef}
           className="menu-toggle"
           type="button"
           aria-expanded={menuOpen}
           aria-controls="mobile-navigation-dialog"
-          aria-label={menuOpen ? 'Cerrar menú de navegación' : 'Abrir menú de navegación'}
+          aria-label={menuOpen ? t.header.closeMenuLabel : t.header.openMenuLabel}
           onClick={() => setMenuOpen(true)}
         >
-          <span>MENÚ</span>
+          <span>{t.header.menuButton}</span>
           <span className="menu-toggle-icon" aria-hidden="true"><i /><i /></span>
         </button>
         <dialog
@@ -101,12 +107,12 @@ export function SiteHeader() {
         >
           <div className="mobile-menu-panel">
             <div className="mobile-menu-header">
-              <p id="mobile-menu-title"><span aria-hidden="true">●</span> NAVEGACIÓN</p>
+              <p id="mobile-menu-title"><span aria-hidden="true">●</span> {t.header.menuTitle}</p>
               <button type="button" className="mobile-menu-close" onClick={() => closeMenu(true)}>
-                <span>CERRAR</span><span aria-hidden="true">×</span>
+                <span>{t.header.closeButton}</span><span aria-hidden="true">×</span>
               </button>
             </div>
-            <nav aria-label="Navegación móvil">
+            <nav aria-label={t.header.mobileNavigationLabel}>
               <ul className="mobile-navigation">
                 {navigation.map(({ id, label, index }, itemIndex) => (
                   <li key={id}>
@@ -117,14 +123,15 @@ export function SiteHeader() {
                       onClick={() => handleNavigation(id)}
                     >
                       <span className="mobile-nav-index" aria-hidden="true">{index}</span>
-                      <span>{label.es}</span>
+                      <span>{localize(label)}</span>
                       <span className="mobile-nav-arrow" aria-hidden="true">↗</span>
                     </a>
                   </li>
                 ))}
               </ul>
             </nav>
-            <p className="mobile-menu-note">BRYAN QUIÑONES / SOFTWARE DEVELOPER</p>
+            <LanguageSwitcher placement="mobile" />
+            <p className="mobile-menu-note">{t.header.menuNote}</p>
           </div>
         </dialog>
       </div>

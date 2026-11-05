@@ -2,6 +2,14 @@ export type Locale = 'es' | 'en'
 
 export type LocalizedText = Record<Locale, string>
 
+export interface EditorialText {
+  lead: string
+  accent: string
+  tail: string
+}
+
+export type LocalizedEditorialText = Record<Locale, EditorialText>
+
 export type SectionId = 'home' | 'about' | 'experience' | 'stack' | 'projects' | 'contact'
 
 export interface NavigationItem {
@@ -27,7 +35,7 @@ export interface Project {
   description: LocalizedText
   stack: readonly string[]
   artwork: ProjectArtworkKind
-  artworkLabel: string
+  artworkLabel: LocalizedText
   // Populate only after verifying the destination belongs to this project.
   links: {
     repository: `https://${string}` | null
@@ -37,7 +45,7 @@ export interface Project {
 
 export interface AboutContent {
   eyebrow: LocalizedText
-  heading: LocalizedText
+  heading: LocalizedEditorialText
   description: LocalizedText
   locationLabel: LocalizedText
   location: LocalizedText
@@ -61,7 +69,7 @@ export interface TimelineEntry {
 
 export interface TimelineContent {
   eyebrow: LocalizedText
-  heading: LocalizedText
+  heading: LocalizedEditorialText
   description: LocalizedText
   workLabel: LocalizedText
   educationLabel: LocalizedText
@@ -75,7 +83,7 @@ export interface TechCategory {
 
 export interface TechStackContent {
   eyebrow: LocalizedText
-  heading: LocalizedText
+  heading: LocalizedEditorialText
   description: LocalizedText
   categories: readonly TechCategory[]
 }

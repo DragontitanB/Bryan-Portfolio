@@ -16,7 +16,6 @@ export function ExperienceSection() {
           heading={timelineContent.heading}
           description={timelineContent.description}
           headingId="experience-heading"
-          accentWord="personas"
         />
       </div>
       <div className="timeline-lanes">

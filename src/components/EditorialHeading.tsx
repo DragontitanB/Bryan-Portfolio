@@ -1,11 +1,11 @@
-import type { LocalizedText } from '../types/portfolio'
+import { useLanguage } from '../hooks/useLanguage'
+import type { LocalizedEditorialText, LocalizedText } from '../types/portfolio'
 
 interface EditorialHeadingProps {
   eyebrow: LocalizedText
-  heading: LocalizedText
+  heading: LocalizedEditorialText
   description: LocalizedText
   headingId: string
-  accentWord?: string
 }
 
 export function EditorialHeading({
@@ -13,17 +13,17 @@ export function EditorialHeading({
   heading,
   description,
   headingId,
-  accentWord,
 }: EditorialHeadingProps) {
-  const [lead, tail] = accentWord ? heading.es.split(accentWord) : [heading.es, '']
+  const { language, localize } = useLanguage()
+  const localizedHeading = heading[language]
 
   return (
     <div className="editorial-heading">
-      <span className="eyebrow">{eyebrow.es}</span>
+      <span className="eyebrow">{localize(eyebrow)}</span>
       <h2 id={headingId}>
-        {lead}{accentWord && <span>{accentWord}</span>}{tail}
+        {localizedHeading.lead}<span>{localizedHeading.accent}</span>{localizedHeading.tail}
       </h2>
-      <p>{description.es}</p>
+      <p>{localize(description)}</p>
     </div>
   )
 }

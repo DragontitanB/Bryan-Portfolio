@@ -1,13 +1,21 @@
 <!doctype html>
-<html lang="es">
+<html lang="en">
   <head>
     <meta charset="UTF-8" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="/src/styles/index.css" />
     <meta name="theme-color" content="#101211" />
-    <meta name="description" content="Portfolio profesional de Bryan Quiñones, Software Developer especializado en Backend .NET. Ideas con estructura, software con intención." />
+    <meta name="description" content="Professional portfolio of Bryan Quiñones, a Software Developer specializing in Backend .NET, MVC architecture, REST APIs, and database integration." />
     <title>Bryan Quiñones — Backend .NET Developer</title>
+    <style>html[data-language-pending] #root{visibility:hidden}</style>
+    <script>
+      try {
+        if (localStorage.getItem('bryan-portfolio:language') === 'es') {
+          document.documentElement.dataset.languagePending = 'es'
+        }
+      } catch {}
+    </script>
   </head>
   <body>
     <div id="root"></div>

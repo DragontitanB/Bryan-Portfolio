@@ -5,6 +5,7 @@ import cinemaArtwork from '../assets/project-cinema.svg'
 import modulesArtwork from '../assets/project-modules.svg'
 import type { Project, ProjectArtworkKind } from '../types/portfolio'
 import { ArrowIcon } from './ArrowIcon'
+import { useLanguage } from '../hooks/useLanguage'
 
 const artworks: Record<ProjectArtworkKind, string> = {
   architecture: architectureArtwork,
@@ -19,11 +20,12 @@ interface ProjectCardProps {
 
 export function ProjectCard({ project, number }: ProjectCardProps) {
   const reducedMotion = useReducedMotionPreference()
+  const { localize, t } = useLanguage()
   const lift = reducedMotion === false ? -3 : 0
   const headingId = `project-${project.id}`
   const links = [
-    { label: 'Repositorio', url: project.links.repository },
-    { label: 'Demo', url: project.links.demo },
+    { label: t.projects.repository, url: project.links.repository },
+    { label: t.projects.demo, url: project.links.demo },
   ]
 
   return (
@@ -35,19 +37,19 @@ export function ProjectCard({ project, number }: ProjectCardProps) {
     >
       <div className="project-content">
         <div className="project-meta">
-          <span className="project-number" aria-label={`Proyecto ${number}`}>{number}</span>
-          <span className="project-category">{project.category.es}</span>
+          <span className="project-number" aria-label={t.projects.projectLabel(number)}>{number}</span>
+          <span className="project-category">{localize(project.category)}</span>
           <span className="project-year">{project.year}</span>
         </div>
         <h3 id={headingId}>{project.name}</h3>
-        <p className="project-description">{project.description.es}</p>
-        <ul className="project-stack" aria-label={`Tecnologías de ${project.name}`}>
+        <p className="project-description">{localize(project.description)}</p>
+        <ul className="project-stack" aria-label={t.projects.technologiesLabel(project.name)}>
           {project.stack.map((technology) => <li key={technology}>{technology}</li>)}
         </ul>
         {links.some(({ url }) => url !== null) && (
           <div className="project-links">
             {links.map(({ label, url }) => url && (
-              <a href={url} key={label} aria-label={`${label} de ${project.name}`}>
+              <a href={url} key={label} aria-label={t.projects.linkLabel(label, project.name)}>
                 {label}<ArrowIcon />
               </a>
             ))}
@@ -55,13 +57,13 @@ export function ProjectCard({ project, number }: ProjectCardProps) {
         )}
       </div>
       <figure className="project-artwork" aria-hidden="true">
-        <span className="project-art-label">{project.artworkLabel}</span>
+        <span className="project-art-label">{localize(project.artworkLabel)}</span>
         <motion.img
           src={artworks[project.artwork]} alt="" width="640" height="440" loading="lazy" decoding="async"
           variants={{ rest: { y: 0 }, engaged: { y: reducedMotion === false ? -2 : 0 } }}
           transition={{ duration: reducedMotion ? 0 : 0.3 }}
         />
-        <figcaption>ILUSTRACIÓN CONCEPTUAL <span>/{number}</span></figcaption>
+        <figcaption>{t.projects.artworkCaption} <span>/{number}</span></figcaption>
       </figure>
     </motion.article>
   )
