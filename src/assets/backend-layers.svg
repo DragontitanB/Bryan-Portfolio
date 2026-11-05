@@ -1,0 +1,39 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 560 560" fill="none">
+  <defs>
+    <linearGradient id="top" x1="160" y1="130" x2="390" y2="300" gradientUnits="userSpaceOnUse"><stop stop-color="#a3f8cf"/><stop offset="1" stop-color="#3b9875"/></linearGradient>
+    <linearGradient id="side" x1="150" y1="210" x2="400" y2="300" gradientUnits="userSpaceOnUse"><stop stop-color="#27644f"/><stop offset="1" stop-color="#16382d"/></linearGradient>
+    <linearGradient id="base" x1="150" y1="300" x2="400" y2="420" gradientUnits="userSpaceOnUse"><stop stop-color="#1b382e"/><stop offset="1" stop-color="#101d18"/></linearGradient>
+    <radialGradient id="glow"><stop stop-color="#74efb8" stop-opacity=".13"/><stop offset="1" stop-color="#74efb8" stop-opacity="0"/></radialGradient>
+  </defs>
+  <circle cx="280" cy="280" r="264" fill="url(#glow)"/>
+  <g stroke="#82b89e" stroke-opacity=".18">
+    <circle cx="280" cy="280" r="215"/>
+    <circle cx="280" cy="280" r="176" stroke-dasharray="2 9"/>
+    <path d="M35 280h490M280 35v490" stroke-dasharray="3 8"/>
+    <ellipse cx="280" cy="330" rx="239" ry="91" transform="rotate(-27 280 330)"/>
+  </g>
+  <g stroke="#8de8bb" stroke-opacity=".55">
+    <path d="m141 334 139-81 139 81v23l-139 81-139-81z" fill="url(#base)"/>
+    <path d="m141 334 139 81 139-81M280 415v23"/>
+    <path d="m141 270 139-81 139 81v23l-139 81-139-81z" fill="url(#base)"/>
+    <path d="m141 270 139 81 139-81M280 351v23"/>
+  </g>
+  <g stroke="#a3f8cf" stroke-opacity=".35" stroke-dasharray="3 5">
+    <path d="M165 227v55m230-55v55M280 294v108M165 315v29m230-29v29"/>
+  </g>
+  <g stroke="#b4f9d7" stroke-width="1.2" stroke-linejoin="round">
+    <path d="m141 205 139-81 139 81v27l-139 81-139-81z" fill="url(#side)"/>
+    <path d="m141 205 139-81 139 81-139 81z" fill="url(#top)"/>
+    <path d="M280 286v27"/>
+    <path d="m166 205 114-66 114 66-114 66z" stroke-opacity=".4"/>
+  </g>
+  <g transform="translate(280 207) matrix(.87 .5 -.87 .5 0 0)">
+    <text x="0" y="10" fill="#102d23" font-family="Consolas, monospace" font-size="47" font-weight="700" text-anchor="middle">.NET</text>
+  </g>
+  <g stroke="#a3f8cf" stroke-width="1.5">
+    <path d="M65 122v12m-6-6h12M470 395v12m-6-6h12"/>
+    <circle cx="91" cy="372" r="4" fill="#a3f8cf"/>
+    <circle cx="461" cy="163" r="4" fill="#a3f8cf"/>
+  </g>
+  <g fill="#79a18c"><circle cx="280" cy="65" r="2"/><circle cx="280" cy="495" r="2"/><circle cx="65" cy="280" r="2"/><circle cx="495" cy="280" r="2"/></g>
+</svg>

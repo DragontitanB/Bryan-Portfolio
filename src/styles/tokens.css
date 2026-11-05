@@ -1,0 +1,13 @@
+:root {
+  color-scheme: dark;
+  --color-bg: #101211;
+  --color-surface: #171c19;
+  --color-text: #f1f2eb;
+  --color-muted: #a1aaa3;
+  --color-accent: #a3f8cf;
+  --color-line: #2d342f;
+  --font-sans: 'Segoe UI', 'Helvetica Neue', Arial, sans-serif;
+  --font-mono: 'Cascadia Code', 'SFMono-Regular', Consolas, monospace;
+  --page-gutter: clamp(1.25rem, 5vw, 5.5rem);
+  --page-width: 1440px;
+}
