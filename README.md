@@ -1,6 +1,6 @@
 # Bryan-Portfolio
 
-Portfolio profesional de Bryan Quiñones, Software Developer especializado en Backend .NET. Hero y Selected Work responsive con estética Creative Developer Lab: fondo oscuro, acentos verde menta e ilustraciones SVG propias.
+Portfolio profesional de Bryan Quiñones, Software Developer especializado en Backend .NET. Incluye Hero, About Me, Experience & Education, Tech Stack, Selected Work y Contact, con una estética Creative Developer Lab basada en fondo oscuro, acentos verde menta e ilustraciones SVG propias.
 
 ## Stack
 
@@ -33,11 +33,11 @@ npm run preview
 
 ```text
 src/
-  components/   Navegación, enlaces, iconos, ilustración y footer
-  sections/     Hero, Projects y Contact
-  data/         Perfil, navegación y proyectos
+  components/   Navegación, enlaces, timelines, grupos tecnológicos, ilustración y footer
+  sections/     Hero, About, Experience, Tech Stack, Projects y Contact
+  data/         Perfil, navegación, trayectoria, tecnologías y proyectos
   hooks/        Sección activa durante el desplazamiento
-  types/        Contratos del perfil, navegación y proyectos
+  types/        Contratos de contenido localizado, perfil, trayectoria, stack y proyectos
   assets/       Ilustraciones SVG del backend y los proyectos
   styles/       Tokens, base, componentes, secciones y movimiento
   App.tsx       Composición de la página
@@ -45,12 +45,15 @@ src/
   entry-server.tsx  Render del HTML estático para Vite
 ```
 
-El perfil y los proyectos se editan en `src/data/portfolio.ts`. Cada proyecto tiene campos `links.repository` y `links.demo`, inicialmente `null`. Añade únicamente URLs HTTPS verificadas: los enlaces se muestran solo cuando tienen una URL. Los colores, fuentes y espaciado base están en `src/styles/tokens.css`; los estilos de Selected Work están en `src/styles/projects.css`.
+El contenido se edita en `src/data/portfolio.ts`. Los textos principales usan objetos `{ es, en }`; la interfaz muestra español por ahora y queda preparada para conectar un selector de idioma en una iteración futura. Cada proyecto tiene campos `links.repository` y `links.demo`, inicialmente `null`. Añade únicamente URLs HTTPS verificadas: los enlaces se muestran solo cuando tienen una URL. Los colores, fuentes y espaciado base están en `src/styles/tokens.css`; los estilos de About, Experience y Tech Stack están en `src/styles/profile.css`.
 
 ## Alcance de esta iteración
 
 - Hero con nombre, rol, descripción y enlaces Projects y Contact.
-- Navegación por anclas nativas, indicador de sección activa y enlace para saltar al contenido.
+- Navegación por anclas nativas para Home, About, Experience, Stack, Projects y Contact, indicador de sección activa y enlace para saltar al contenido.
+- About Me presenta el enfoque profesional, ubicación y proyectos sin fotografía ni información sensible.
+- Experience & Education separa la experiencia de soporte técnico y firmas digitales de la formación en ITLA y UNAPEC mediante dos recorridos visuales.
+- Tech Stack organiza 19 tecnologías por Backend, Databases, Frontend & Mobile y Tools & Workflow, sin porcentajes de dominio.
 - Selected Work presenta TrackerClean (2024), CineSeat (2025) y Couteau (2025), con sus tecnologías y descripciones. Sus ilustraciones geométricas son conceptuales, no capturas de las aplicaciones.
 - Las tarjetas pueden recibir foco con Tab y muestran un estado equivalente al hover. No actúan como botones; los enlaces de repositorio o demo aparecerán cuando se añadan URLs verificadas.
 - Contact permanece provisional. No se publican métricas ni canales de contacto.

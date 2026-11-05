@@ -3,6 +3,9 @@ import { ScrollProgress } from './components/ScrollProgress'
 import { SiteHeader } from './components/SiteHeader'
 import { SiteFooter } from './components/SiteFooter'
 import { HeroSection } from './sections/HeroSection'
+import { AboutSection } from './sections/AboutSection'
+import { ExperienceSection } from './sections/ExperienceSection'
+import { TechStackSection } from './sections/TechStackSection'
 import { ProjectsSection } from './sections/ProjectsSection'
 import { ContactSection } from './sections/ContactSection'
 
@@ -14,6 +17,9 @@ function App() {
       <SiteHeader />
       <main id="main" tabIndex={-1}>
         <HeroSection />
+        <AboutSection />
+        <ExperienceSection />
+        <TechStackSection />
         <ProjectsSection />
         <ContactSection />
       </main>

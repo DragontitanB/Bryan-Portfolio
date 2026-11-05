@@ -36,11 +36,11 @@ export function ProjectCard({ project, number }: ProjectCardProps) {
       <div className="project-content">
         <div className="project-meta">
           <span className="project-number" aria-label={`Proyecto ${number}`}>{number}</span>
-          <span className="project-category">{project.category}</span>
+          <span className="project-category">{project.category.es}</span>
           <span className="project-year">{project.year}</span>
         </div>
         <h3 id={headingId}>{project.name}</h3>
-        <p className="project-description">{project.description}</p>
+        <p className="project-description">{project.description.es}</p>
         <ul className="project-stack" aria-label={`Tecnologías de ${project.name}`}>
           {project.stack.map((technology) => <li key={technology}>{technology}</li>)}
         </ul>

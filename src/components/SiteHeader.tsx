@@ -17,7 +17,7 @@ export function SiteHeader() {
               <li key={id}>
                 <a href={`#${id}`} aria-current={activeSection === id ? 'location' : undefined}>
                   <span className="nav-index" aria-hidden="true">{index}</span>
-                  {label}
+                  {label.es}
                 </a>
               </li>
             ))}

@@ -8,7 +8,7 @@ export function ProjectsSection() {
   return (
     <section id="projects" className="content-section projects-section container" aria-labelledby="projects-heading" tabIndex={-1}>
       <div className="section-label">
-        <span className="eyebrow">01 / PROJECTS</span>
+        <span className="eyebrow">04 / PROJECTS</span>
         <span className="section-state">2024 — 2025</span>
       </div>
       <div className="work-intro" ref={scope}>

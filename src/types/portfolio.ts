@@ -1,16 +1,20 @@
-export type SectionId = 'home' | 'projects' | 'contact'
+export type Locale = 'es' | 'en'
+
+export type LocalizedText = Record<Locale, string>
+
+export type SectionId = 'home' | 'about' | 'experience' | 'stack' | 'projects' | 'contact'
 
 export interface NavigationItem {
   id: SectionId
-  label: string
+  label: LocalizedText
   index: string
 }
 
 export interface Profile {
   firstName: string
   lastName: string
-  role: string
-  description: string
+  role: LocalizedText
+  description: LocalizedText
 }
 
 export type ProjectArtworkKind = 'architecture' | 'cinema' | 'modules'
@@ -18,9 +22,9 @@ export type ProjectArtworkKind = 'architecture' | 'cinema' | 'modules'
 export interface Project {
   id: string
   name: string
-  category: string
+  category: LocalizedText
   year: number
-  description: string
+  description: LocalizedText
   stack: readonly string[]
   artwork: ProjectArtworkKind
   artworkLabel: string
@@ -29,4 +33,49 @@ export interface Project {
     repository: `https://${string}` | null
     demo: `https://${string}` | null
   }
+}
+
+export interface AboutContent {
+  eyebrow: LocalizedText
+  heading: LocalizedText
+  description: LocalizedText
+  locationLabel: LocalizedText
+  location: LocalizedText
+  focusLabel: LocalizedText
+  focus: LocalizedText
+  projectsLabel: LocalizedText
+  projects: readonly string[]
+}
+
+export type TimelineKind = 'work' | 'education'
+
+export interface TimelineEntry {
+  id: string
+  kind: TimelineKind
+  period: LocalizedText
+  title: LocalizedText
+  institution?: string
+  description: LocalizedText
+  details: readonly LocalizedText[]
+}
+
+export interface TimelineContent {
+  eyebrow: LocalizedText
+  heading: LocalizedText
+  description: LocalizedText
+  workLabel: LocalizedText
+  educationLabel: LocalizedText
+}
+
+export interface TechCategory {
+  id: string
+  label: LocalizedText
+  technologies: readonly string[]
+}
+
+export interface TechStackContent {
+  eyebrow: LocalizedText
+  heading: LocalizedText
+  description: LocalizedText
+  categories: readonly TechCategory[]
 }

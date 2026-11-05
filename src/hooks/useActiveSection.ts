@@ -1,7 +1,8 @@
 import { useEffect, useState } from 'react'
 import type { SectionId } from '../types/portfolio'
+import { navigation } from '../data/portfolio'
 
-const sectionIds: readonly SectionId[] = ['home', 'projects', 'contact']
+const sectionIds: readonly SectionId[] = navigation.map(({ id }) => id)
 
 export function useActiveSection() {
   const [activeSection, setActiveSection] = useState<SectionId>('home')
