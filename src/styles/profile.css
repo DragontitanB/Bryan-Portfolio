@@ -401,6 +401,10 @@
 }
 
 @media (max-width: 760px) {
+  .profile-section {
+    padding-block: clamp(3.5rem, 14vw, 5rem);
+  }
+
   .about-layout,
   .editorial-heading {
     grid-template-columns: minmax(0, 1fr);
@@ -418,6 +422,19 @@
 
   .about-copy {
     grid-template-columns: minmax(0, 1fr);
+  }
+
+  .about-layout h2 {
+    font-size: clamp(2.75rem, 14vw, 4.5rem);
+  }
+
+  .editorial-heading h2 {
+    font-size: clamp(2.5rem, 12vw, 4rem);
+  }
+
+  .editorial-heading > p,
+  .timeline-milestone p {
+    font-size: 0.9375rem;
   }
 
   .about-facts {
@@ -448,6 +465,13 @@
 
   .tech-group > article {
     min-height: auto;
+  }
+}
+
+@media (hover: none), (pointer: coarse) {
+  .tech-group > article:is(:hover, :focus-visible) li,
+  .tech-group > article:is(:hover, :focus-visible) li:nth-child(2n) {
+    transform: none;
   }
 }
 

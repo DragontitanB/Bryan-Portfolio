@@ -1,6 +1,7 @@
 import { useEffect, useRef } from 'react'
 import { stagger, useAnimate, useInView } from 'motion/react'
 import { useReducedMotionPreference } from './useReducedMotionPreference'
+import { useMediaQuery } from './useMediaQuery'
 
 interface RevealOptions {
   trigger?: 'load' | 'viewport'
@@ -16,6 +17,7 @@ export function useReveal<T extends HTMLElement>({
   const [scope, animate] = useAnimate<T>()
   const inView = useInView(scope, { once: true, amount: 0.12 })
   const reducedMotion = useReducedMotionPreference()
+  const hasFinePointer = useMediaQuery('(hover: hover) and (pointer: fine)')
   const played = useRef(false)
   const ready = trigger === 'load' || inView
 
@@ -40,8 +42,10 @@ export function useReveal<T extends HTMLElement>({
 
     let animation: ReturnType<typeof animate>
     try {
-      animation = animate(elements, { opacity: [0.45, 1], y: [10, 0] }, {
-        duration: 0.6,
+      animation = animate(elements, hasFinePointer
+        ? { opacity: [0.45, 1], y: [10, 0] }
+        : { opacity: [0.65, 1] }, {
+        duration: hasFinePointer ? 0.6 : 0.4,
         delay: stagger(0.09, { startDelay: delay }),
         ease: [0.22, 1, 0.36, 1],
       })
@@ -61,7 +65,7 @@ export function useReveal<T extends HTMLElement>({
       // Allow React StrictMode to restart an entrance cancelled during setup.
       if (!finished) played.current = false
     }
-  }, [animate, delay, ready, reducedMotion, scope, selector])
+  }, [animate, delay, hasFinePointer, ready, reducedMotion, scope, selector])
 
   return scope
 }

@@ -1,13 +1,15 @@
 import { motion, useInView } from 'motion/react'
 import { useRef } from 'react'
 import { useReducedMotionPreference } from '../hooks/useReducedMotionPreference'
+import { useMediaQuery } from '../hooks/useMediaQuery'
 import backendLayers from '../assets/backend-layers.svg'
 
 export function BackendVisual() {
   const scope = useRef<HTMLDivElement>(null)
   const inView = useInView(scope)
   const reducedMotion = useReducedMotionPreference()
-  const floating = inView && reducedMotion === false
+  const hasFinePointer = useMediaQuery('(hover: hover) and (pointer: fine)')
+  const floating = inView && reducedMotion === false && hasFinePointer
 
   return (
     <div className="backend-visual" aria-hidden="true" ref={scope}>

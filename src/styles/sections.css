@@ -215,6 +215,15 @@
 }
 
 @media (max-width: 760px) {
+  .hero-section {
+    padding-top: clamp(3rem, 12vw, 4.5rem);
+  }
+
+  .hero-description,
+  .section-copy {
+    font-size: 0.9375rem;
+  }
+
   .section-layout {
     grid-template-columns: minmax(0, 1fr);
     gap: 2.5rem;

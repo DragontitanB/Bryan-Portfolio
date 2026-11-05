@@ -4,7 +4,13 @@
 
 html {
   scroll-behavior: smooth;
-  scroll-padding-top: 7rem;
+  scroll-padding-top: clamp(1rem, 3vw, 2rem);
+  scrollbar-gutter: stable;
+}
+
+html.mobile-menu-open,
+html.mobile-menu-open body {
+  overflow: hidden;
 }
 
 body {
@@ -42,6 +48,10 @@ h1, h2, p {
 img {
   display: block;
   max-width: 100%;
+}
+
+main > section {
+  scroll-margin-top: clamp(1rem, 3vw, 2rem);
 }
 
 .container {
