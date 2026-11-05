@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="640" height="440" viewBox="0 0 640 440" fill="none">
+  <defs>
+    <g id="seat" stroke="#223c30" stroke-width="1.4"><rect x="-21" y="-23" width="42" height="34" rx="10" fill="#abd9bc"/><path d="M-27-4v14a8 8 0 0 0 8 8h38a8 8 0 0 0 8-8V-4M-17 18v8m34-8v8" stroke-linecap="round"/></g>
+    <g id="selected" stroke="#173d2a" stroke-width="1.4"><rect x="-21" y="-23" width="42" height="34" rx="10" fill="#203f2e"/><path d="M-27-4v14a8 8 0 0 0 8 8h38a8 8 0 0 0 8-8V-4M-17 18v8m34-8v8" stroke-linecap="round"/><path d="m-7-7 5 5 10-11" stroke="#d4f3dc" stroke-linecap="round" stroke-linejoin="round"/></g>
+  </defs>
+  <g stroke="#244934" stroke-opacity=".16"><circle cx="320" cy="204" r="168"/><path d="M72 212h496M320 38v364" stroke-dasharray="3 8"/></g>
+  <path d="M149 100q171-58 342 0" stroke="#234332" stroke-width="3" stroke-linecap="round"/>
+  <path d="M174 112q146-48 292 0" stroke="#234332" stroke-opacity=".3"/>
+  <g transform="translate(320 205) rotate(-12)">
+    <use href="#seat" transform="translate(-120 -30)"/><use href="#seat" transform="translate(-40 -30)"/><use href="#seat" transform="translate(40 -30)"/><use href="#seat" transform="translate(120 -30)"/>
+    <use href="#seat" transform="translate(-120 50)"/><use href="#selected" transform="translate(-40 50)"/><use href="#selected" transform="translate(40 50)"/><use href="#seat" transform="translate(120 50)"/>
+    <use href="#seat" transform="translate(-120 130)"/><use href="#seat" transform="translate(-40 130)"/><use href="#seat" transform="translate(40 130)"/><use href="#seat" transform="translate(120 130)"/>
+  </g>
+  <g stroke="#244934" stroke-opacity=".65"><path d="M101 320v14m-7-7h14M539 141v14m-7-7h14"/><circle cx="515" cy="345" r="4"/></g>
+</svg>

@@ -1,6 +1,6 @@
 # Bryan-Portfolio
 
-Portfolio profesional de Bryan Quiñones, Software Developer especializado en Backend .NET. Primera iteración con una Hero responsive y estética Creative Developer Lab: fondo oscuro, acentos verde menta y una ilustración SVG propia.
+Portfolio profesional de Bryan Quiñones, Software Developer especializado en Backend .NET. Hero y Selected Work responsive con estética Creative Developer Lab: fondo oscuro, acentos verde menta e ilustraciones SVG propias.
 
 ## Stack
 
@@ -35,22 +35,24 @@ npm run preview
 src/
   components/   Navegación, enlaces, iconos, ilustración y footer
   sections/     Hero, Projects y Contact
-  data/         Perfil y navegación
+  data/         Perfil, navegación y proyectos
   hooks/        Sección activa durante el desplazamiento
-  types/        Contratos del perfil y la navegación
-  assets/       Ilustración SVG del backend
+  types/        Contratos del perfil, navegación y proyectos
+  assets/       Ilustraciones SVG del backend y los proyectos
   styles/       Tokens, base, componentes, secciones y movimiento
   App.tsx       Composición de la página
   main.tsx      Entrada de React
 ```
 
-El contenido del perfil se edita en `src/data/portfolio.ts`. Los colores, fuentes y espaciado base están en `src/styles/tokens.css`.
+El perfil y los proyectos se editan en `src/data/portfolio.ts`. Cada proyecto tiene campos `links.repository` y `links.demo`, inicialmente `null`. Añade únicamente URLs HTTPS verificadas: los enlaces se muestran solo cuando tienen una URL. Los colores, fuentes y espaciado base están en `src/styles/tokens.css`; los estilos de Selected Work están en `src/styles/projects.css`.
 
 ## Alcance de esta iteración
 
 - Hero con nombre, rol, descripción y enlaces Projects y Contact.
 - Navegación por anclas nativas, indicador de sección activa y enlace para saltar al contenido.
-- Secciones Projects y Contact provisionales. Todavía no se publican proyectos, experiencia, métricas ni canales de contacto.
+- Selected Work presenta TrackerClean (2024), CineSeat (2025) y Couteau (2025), con sus tecnologías y descripciones. Sus ilustraciones geométricas son conceptuales, no capturas de las aplicaciones.
+- Las tarjetas pueden recibir foco con Tab y muestran un estado equivalente al hover. No actúan como botones; los enlaces de repositorio o demo aparecerán cuando se añadan URLs verificadas.
+- Contact permanece provisional. No se publican métricas ni canales de contacto.
 - Diseño adaptable a móvil, tablet y escritorio. Las animaciones y el desplazamiento suave respetan `prefers-reduced-motion`.
 
 Para revisar el resultado, prueba los enlaces del menú y de la Hero, navega con Tab y comprueba el diseño a 320, 768 y 1440 px de ancho. Activa la preferencia de movimiento reducido en el sistema o en las herramientas del navegador para comprobar que se desactivan las animaciones.
